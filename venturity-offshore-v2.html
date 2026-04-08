@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offshore Accounting That Actually Works — Venturity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:    #042C53;
+    --blue:    #185FA5;
+    --blue-md: #378ADD;
+    --blue-lt: #E6F1FB;
+    --blue-bd: #B5D4F4;
+    --teal:    #1D9E75;
+    --teal-lt: #E1F5EE;
+    --teal-dk: #085041;
+    --teal-bd: #9FE1CB;
+    --red:     #E24B4A;
+    --red-lt:  #FCEBEB;
+    --red-bd:  #F7C1C1;
+    --red-dk:  #A32D2D;
+    --gray-lt: #F5F5F3;
+    --gray-md: #888780;
+    --gray-bd: #D3D1C7;
+    --white:   #FFFFFF;
+    --black:   #1A1A1A;
+    --text:    #555553;
+    --lblue:   #85B7EB;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-sans:  'DM Sans', system-ui, sans-serif;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --max-w: 1080px;
+    --pad-x: 40px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); font-size: 15px; line-height: 1.65; color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+  .section { padding: 64px 0; border-bottom: 1px solid var(--gray-bd); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+  h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 52px); font-weight: 400; line-height: 1.1; letter-spacing: -0.5px; color: var(--navy); }
+  h2 { font-family: var(--font-sans); font-size: clamp(20px, 3vw, 28px); font-weight: 600; line-height: 1.2; letter-spacing: -0.3px; color: var(--navy); }
+  h3 { font-family: var(--font-sans); font-size: 16px; font-weight: 600; color: var(--navy); }
+  h4 { font-family: var(--font-sans); font-size: 14px; font-weight: 600; color: var(--navy); }
+  p  { color: var(--text); line-height: 1.7; }
+
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); background: var(--blue-lt); padding: 4px 10px; border-radius: var(--radius-sm); margin-bottom: 12px; }
+  .tag-teal { color: var(--teal-dk); background: var(--teal-lt); }
+
+  .accent-bar { width: 36px; height: 3px; background: var(--blue); border-radius: 2px; margin-bottom: 14px; }
+
+  .btn { display: inline-block; padding: 12px 26px; font-size: 14px; font-weight: 600; border-radius: var(--radius-md); cursor: pointer; transition: opacity .15s, transform .1s; }
+  .btn:hover { opacity: .88; transform: translateY(-1px); }
+  .btn-primary { background: var(--blue); color: var(--white); }
+  .btn-teal    { background: var(--teal); color: var(--white); }
+  .btn-ghost   { background: transparent; color: var(--navy); border: 1px solid var(--gray-bd); }
+  .btn-ghost-white { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.35); }
+  .btn-ghost-white:hover { background: rgba(255,255,255,0.08); }
+  .btn-lg { padding: 14px 32px; font-size: 15px; }
+
+  .card      { background: var(--white);   border: 1px solid var(--gray-bd); border-radius: var(--radius-lg); padding: 22px; }
+  .card-teal { background: var(--teal-lt); border: 1px solid var(--teal-bd); border-radius: var(--radius-lg); padding: 22px; }
+  .card-red  { background: var(--red-lt);  border: 1px solid var(--red-bd);  border-radius: var(--radius-lg); padding: 22px; }
+  .card-gray { background: var(--gray-lt); border: 1px solid var(--gray-bd); border-radius: var(--radius-lg); padding: 22px; }
+  .card-navy { background: var(--navy);    border-radius: var(--radius-lg); padding: 28px; }
+
+  .card-accent-left-teal { border-left: 3px solid var(--teal); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+  .card-accent-left-red  { border-left: 3px solid var(--red);  border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+  .card-accent-top-teal  { border-top: 3px solid var(--teal);  border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+  .card-accent-top-red   { border-top: 3px solid var(--red);   border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+  .card-accent-top-blue  { border-top: 3px solid var(--blue);  border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+  .card-accent-top-gray  { border-top: 3px solid var(--gray-bd); border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+
+  .check-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; font-size: 14px; color: var(--text); }
+  .check-item .sym { font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .check-item .sym.ok  { color: var(--teal); }
+  .check-item .sym.bad { color: var(--red); }
+
+  .divider { border: none; border-top: 1px solid var(--gray-bd); }
+
+  .stat-num   { font-size: 40px; font-weight: 700; color: var(--blue); line-height: 1; }
+  .stat-label { font-size: 13px; color: var(--text); margin-top: 5px; }
+
+  /* Nav */
+  .nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--gray-bd); padding: 0 var(--pad-x); }
+  .nav-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 24px; }
+  .nav-logo { font-size: 18px; font-weight: 700; color: var(--blue); letter-spacing: -0.3px; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--text); transition: color .15s; }
+  .nav-links a:hover { color: var(--navy); }
+
+  /* Hero */
+  .hero { padding: 64px 0 56px; border-bottom: 1px solid var(--gray-bd); }
+  .hero h1 em { font-style: italic; color: var(--blue-md); }
+  .hero-lede { font-size: 17px; line-height: 1.65; color: var(--text); margin: 18px 0 6px; max-width: 560px; }
+  .hero-metrics { display: flex; gap: 0; margin: 28px 0 32px; }
+  .hero-metric { padding-right: 28px; margin-right: 28px; border-right: 1px solid var(--gray-bd); }
+  .hero-metric:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Upside stats */
+  .upside-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--gray-bd); border: 1px solid var(--gray-bd); border-radius: var(--radius-lg); overflow: hidden; }
+  .upside-cell { background: var(--white); padding: 24px 20px; }
+  .upside-num  { font-size: 28px; font-weight: 700; color: var(--teal); line-height: 1; margin-bottom: 6px; }
+  .upside-label { font-size: 12px; color: var(--text); line-height: 1.45; }
+
+  /* VS table */
+  .vs-table { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-bd); }
+  .vs-header { display: grid; grid-template-columns: 1fr 56px 1fr; background: var(--gray-lt); padding: 10px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .vs-header .left { color: var(--gray-md); }
+  .vs-header .mid  { color: var(--gray-md); text-align: center; }
+  .vs-header .right { color: var(--blue); text-align: right; }
+  .vs-row { display: grid; grid-template-columns: 1fr 56px 1fr; padding: 12px 16px; border-top: 1px solid var(--gray-bd); font-size: 13px; align-items: center; }
+  .vs-row:nth-child(even) { background: var(--gray-lt); }
+  .vs-row .left  { color: var(--text); }
+  .vs-row .mid   { color: var(--gray-md); text-align: center; font-size: 11px; font-weight: 600; }
+  .vs-row .right { color: var(--navy); font-weight: 600; text-align: right; }
+
+  /* Oc cards */
+  .oc-card { background: var(--teal-lt); border: 1px solid var(--teal-bd); border-left: 3px solid var(--teal); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 16px; }
+  .oc-card h4 { color: var(--teal-dk); margin-bottom: 5px; font-size: 13px; }
+  .oc-card p  { font-size: 12px; color: var(--text); line-height: 1.5; }
+
+  /* Result box */
+  .result-box { background: var(--red-lt); border: 1px solid var(--red-bd); border-left: 3px solid var(--red); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 14px 18px; font-size: 13px; color: var(--red-dk); }
+
+  /* Note bar */
+  .note-bar { background: var(--blue-lt); border: 1px solid var(--blue-bd); border-radius: var(--radius-md); padding: 15px 20px; }
+  .note-bar p { font-size: 13px; font-weight: 600; color: var(--blue); }
+
+  /* CTA block */
+  .cta-block { background: var(--navy); border-radius: var(--radius-lg); padding: 44px 48px; }
+  .cta-block .tag { background: rgba(255,255,255,0.1); color: var(--lblue); }
+  .cta-block h2 { color: var(--white); margin-bottom: 10px; }
+  .cta-block p  { color: var(--lblue); font-size: 14px; }
+  .cta-block h5 { color: var(--white); font-size: 13px; font-weight: 600; margin: 14px 0 8px; }
+  .cta-bullets  { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; margin-bottom: 24px; }
+  .cta-bullets span { font-size: 12px; color: var(--lblue); }
+  .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* What we do steps */
+  .do-item { display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--gray-bd); }
+  .do-item:last-child { border-bottom: none; }
+  .do-num { width: 32px; height: 32px; border-radius: var(--radius-sm); background: var(--navy); color: var(--lblue); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  /* FAQ */
+  .faq-item { padding: 18px 0; border-bottom: 1px solid var(--gray-bd); }
+  .faq-item h4 { margin-bottom: 6px; }
+  .faq-item p  { font-size: 13px; }
+
+  /* Footer */
+  .footer-cta { padding: 64px 0; text-align: center; }
+  .footer-cta h2 { margin-bottom: 10px; }
+  .footer-cta p  { color: var(--text); max-width: 420px; margin: 0 auto 28px; }
+  .footer-btns   { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .footer-note   { margin-top: 16px; font-size: 12px; color: var(--gray-md); }
+
+  /* Metrics note */
+  .metrics-note { background: var(--gray-lt); border: 1px solid var(--gray-bd); border-radius: var(--radius-md); padding: 14px 18px; margin-top: 14px; }
+  .metrics-note p { font-size: 12px; color: var(--gray-md); font-weight: 600; }
+
+  /* Leader */
+  .leader-card { display: flex; gap: 14px; align-items: flex-start; }
+  .leader-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .leader-avatar.blue { background: var(--blue-lt); color: var(--blue); }
+  .leader-avatar.teal { background: var(--teal-lt); color: var(--teal-dk); }
+  .leader-cred { font-size: 12px; color: var(--blue); margin-bottom: 5px; }
+  .leader-cred.teal { color: var(--teal-dk); }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+  .fade-up   { animation: fadeUp .45s ease both; }
+  .fade-up-2 { animation-delay: .1s; }
+  .fade-up-3 { animation-delay: .2s; }
+
+  @media (max-width: 860px) {
+    :root { --pad-x: 20px; }
+    .two-col { grid-template-columns: 1fr; gap: 24px; }
+    .three-col { grid-template-columns: 1fr 1fr; }
+    .upside-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .cta-block { padding: 28px; }
+    .cta-bullets { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .three-col { grid-template-columns: 1fr; }
+    .upside-grid { grid-template-columns: 1fr 1fr; }
+    .hero-metrics { flex-direction: column; gap: 14px; }
+    .hero-metric { border-right: none; border-bottom: 1px solid var(--gray-bd); padding-bottom: 14px; }
+    .hero-metric:last-child { border-bottom: none; padding-bottom: 0; }
+    .vs-header, .vs-row { grid-template-columns: 1fr 36px 1fr; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Venturity</div>
+    <ul class="nav-links">
+      <li><a href="#">Services</a></li>
+      <li><a href="#">The Venturity Way</a></li>
+      <li><a href="#">Case Studies</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <a href="#cta" class="btn btn-primary">Book a consultation</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="fade-up">
+      <div class="tag">Managed Offshore Accounting</div>
+      <h1>Offshore Accounting Works.<br><em>Most Companies Just<br>Get It Wrong.</em></h1>
+      <p class="hero-lede">Build a U.S.-led offshore finance operation — without the risk, trial-and-error, or failed implementation.</p>
+      <div class="hero-metrics">
+        <div class="hero-metric"><div class="stat-num">40–60%</div><div class="stat-label">Reduction in accounting costs</div></div>
+        <div class="hero-metric"><div class="stat-num">2–3x</div><div class="stat-label">Increase in processing capacity</div></div>
+        <div class="hero-metric"><div class="stat-num">89</div><div class="stat-label">Average NPS score</div></div>
+      </div>
+      <div class="hero-btns">
+        <a href="#cta" class="btn btn-primary btn-lg">Assess your offshore readiness</a>
+        <a href="#what-we-do" class="btn btn-ghost btn-lg">See how it works</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT STRIP -->
+<div style="background:var(--gray-lt);padding:18px 0;border-bottom:1px solid var(--gray-bd)">
+  <div style="max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x);display:flex;gap:40px;justify-content:center;flex-wrap:wrap">
+    <span style="font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--gray-md)">PE Portfolio Co. A</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--gray-md)">Growth Co. B</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--gray-md)">Sponsor Group C</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--gray-md)">Enterprise D</span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--gray-md)">PE Platform E</span>
+  </div>
+</div>
+
+<!-- WHY OFFSHORE -->
+<section class="section">
+  <div class="container">
+    <div class="tag">The Problem</div>
+    <h2 style="margin-bottom:10px;max-width:520px">At scale, finance becomes expensive, slow, and hard to manage.</h2>
+    <p style="margin-bottom:20px;max-width:540px">Hiring experienced talent is costly and inconsistent. Reporting gets delayed as complexity increases. Back-office costs grow faster than output.</p>
+    <div class="result-box" style="margin-bottom:28px"><strong>The result:</strong> Your finance function becomes a bottleneck — not an asset.</div>
+    <h3 style="margin-bottom:14px">The upside, when done correctly:</h3>
+    <div class="upside-grid">
+      <div class="upside-cell">
+        <div class="upside-num">40–60%</div>
+        <div class="upside-label">Cost reduction in back-office accounting</div>
+      </div>
+      <div class="upside-cell">
+        <div class="upside-num">2–3x</div>
+        <div class="upside-label">Operational capacity without domestic hires</div>
+      </div>
+      <div class="upside-cell">
+        <div class="upside-num">Faster</div>
+        <div class="upside-label">Close cycles and more consistent reporting</div>
+      </div>
+      <div class="upside-cell">
+        <div class="upside-num">Scalable</div>
+        <div class="upside-label">Infrastructure for growth and M&amp;A</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE REALITY -->
+<section class="section" style="background:var(--gray-lt)">
+  <div class="container">
+    <div class="tag">The Reality</div>
+    <h2 style="margin-bottom:10px;max-width:500px">Most companies try to build offshore on their own — and fail.</h2>
+    <p style="margin-bottom:24px">They hire vendors directly. They patch together processes. They manage across time zones. And end up with:</p>
+    <div class="two-col">
+      <div>
+        <div class="check-item"><span class="sym bad">✗</span><span>Unreliable financials</span></div>
+        <div class="check-item"><span class="sym bad">✗</span><span>Missed close cycles</span></div>
+        <div class="check-item"><span class="sym bad">✗</span><span>Constant rework and quality issues</span></div>
+        <div class="check-item"><span class="sym bad">✗</span><span>Audit risk and compliance gaps</span></div>
+      </div>
+      <div class="note-bar" style="align-self:center">
+        <p>The question isn't whether offshore can work.<br>It's whether you can afford to get it wrong.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THAT'S WHERE VENTURITY COMES IN -->
+<section class="section">
+  <div class="container">
+    <div class="tag">That's Where Venturity Comes In</div>
+    <div class="accent-bar"></div>
+    <h2 style="margin-bottom:10px;max-width:560px">We don't give you offshore accountants. We build and deploy a fully structured offshore finance operation.</h2>
+    <p style="max-width:580px">Backed by U.S. standards and managed performance — so you're not experimenting. You're deploying a proven model.</p>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="section" style="background:var(--gray-lt)" id="what-we-do">
+  <div class="container">
+    <div class="tag">What We Do</div>
+    <h2 style="margin-bottom:24px">You don't manage people. You manage performance.</h2>
+    <div style="margin-bottom:20px">
+      <div class="do-item">
+        <div class="do-num">01</div>
+        <div><h4 style="margin-bottom:3px">Design your accounting workflows and systems</h4><p style="font-size:13px">We build the operating model before anyone offshore touches a transaction.</p></div>
+      </div>
+      <div class="do-item">
+        <div class="do-num">02</div>
+        <div><h4 style="margin-bottom:3px">Apply U.S. GAAP standards and financial oversight</h4><p style="font-size:13px">Every engagement is built on U.S. compliance standards from day one.</p></div>
+      </div>
+      <div class="do-item">
+        <div class="do-num">03</div>
+        <div><h4 style="margin-bottom:3px">Deploy a vetted offshore partner — no trial-and-error</h4><p style="font-size:13px">We place you with a proven partner from our joint venture ecosystem.</p></div>
+      </div>
+      <div class="do-item">
+        <div class="do-num">04</div>
+        <div><h4 style="margin-bottom:3px">Implement controls, documentation, and KPIs</h4><p style="font-size:13px">Structured workflows and performance management built in from the start.</p></div>
+      </div>
+      <div class="do-item">
+        <div class="do-num">05</div>
+        <div><h4 style="margin-bottom:3px">Manage the transition from start to finish</h4><p style="font-size:13px">We own the implementation. You focus on outcomes.</p></div>
+      </div>
+    </div>
+    <div class="note-bar">
+      <p>We manage the system — and the team behind it. You manage performance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VENTURITY -->
+<section class="section">
+  <div class="container">
+    <div class="tag">Why Venturity</div>
+    <h2 style="margin-bottom:8px;max-width:520px">Not just offshore accountants. A Venturity-backed system.</h2>
+    <p style="margin-bottom:24px;max-width:560px">We combine U.S.-led financial standards with a vetted offshore partner model — eliminating the trial-and-error most companies face when attempting offshore on their own.</p>
+    <div class="vs-table">
+      <div class="vs-header"><span class="left">Without Venturity</span><span class="mid">vs</span><span class="right">With Venturity</span></div>
+      <div class="vs-row"><span class="left">Trial-and-error vendor hiring</span><span class="mid">vs</span><span class="right">Proven offshore partner model</span></div>
+      <div class="vs-row"><span class="left">No structure or controls</span><span class="mid">vs</span><span class="right">System-driven workflows from day one</span></div>
+      <div class="vs-row"><span class="left">Limited oversight</span><span class="mid">vs</span><span class="right">U.S.-led financial management</span></div>
+      <div class="vs-row"><span class="left">Inconsistent output</span><span class="mid">vs</span><span class="right">KPI-driven performance</span></div>
+      <div class="vs-row"><span class="left">You manage the team</span><span class="mid">vs</span><span class="right">You manage outcomes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL EXAMPLE -->
+<section class="section" style="background:var(--gray-lt)">
+  <div class="container">
+    <div class="tag tag-teal">Real Example</div>
+    <div class="accent-bar"></div>
+    <h2 style="margin-bottom:12px">$1B+ company. 30+ person offshore team.</h2>
+    <p style="margin-bottom:20px;max-width:520px">A PE-backed enterprise operating across multiple entities needed to scale finance without adding domestic headcount.</p>
+    <div class="two-col">
+      <div class="card card-red card-accent-top-red">
+        <h4 style="color:var(--red-dk);margin-bottom:12px">Before Venturity</h4>
+        <div class="check-item"><span class="sym bad">✗</span><span>Fragmented close across entities</span></div>
+        <div class="check-item"><span class="sym bad">✗</span><span>Inconsistent reporting quality</span></div>
+        <div class="check-item"><span class="sym bad">✗</span><span>Audit preparation was a scramble</span></div>
+        <div class="check-item"><span class="sym bad">✗</span><span>No visibility across the operation</span></div>
+      </div>
+      <div class="card card-teal card-accent-top-teal">
+        <h4 style="color:var(--teal-dk);margin-bottom:12px">After Venturity</h4>
+        <div class="check-item"><span class="sym ok">✓</span><span>Standardized reporting across all entities</span></div>
+        <div class="check-item"><span class="sym ok">✓</span><span>Faster close cycles, consistent delivery</span></div>
+        <div class="check-item"><span class="sym ok">✓</span><span>Clean audit — first pass, no findings</span></div>
+        <div class="check-item"><span class="sym ok">✓</span><span>Scalable infrastructure — no headcount added</span></div>
+      </div>
+    </div>
+    <div class="metrics-note">
+      <p>📌 Add hard performance metrics here — close days improved, % cost reduction, headcount vs. output ratio. This is your closer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="section">
+  <div class="container">
+    <div class="tag">Who This Is For</div>
+    <h2 style="margin-bottom:20px">Built for companies serious about scaling finance</h2>
+    <div class="two-col">
+      <div class="card card-accent-top-blue">
+        <h4 style="color:var(--blue);margin-bottom:14px">This is a fit if you are...</h4>
+        <div class="check-item"><span class="sym ok">✓</span><span>PE-backed or growth-stage companies</span></div>
+        <div class="check-item"><span class="sym ok">✓</span><span>Complex, multi-entity operations</span></div>
+        <div class="check-item"><span class="sym ok">✓</span><span>Finance teams under pressure to scale</span></div>
+        <div class="check-item"><span class="sym ok">✓</span><span>Considering or struggling with offshore</span></div>
+      </div>
+      <div class="card card-accent-top-gray">
+        <h4 style="color:var(--gray-md);margin-bottom:14px">Not a fit if you are looking for...</h4>
+        <div class="check-item"><span class="sym bad">✗</span><span>Low-cost labor with no structure</span></div>
+        <div class="check-item"><span class="sym bad">✗</span><span>Staff augmentation without a managed system</span></div>
+        <div style="margin-top:14px;padding:12px 14px;background:var(--gray-lt);border-radius:var(--radius-md)">
+          <p style="font-size:12px;font-style:italic;color:var(--gray-md)">We work with companies serious about doing this right — not the cheapest option in the room.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERSTITIAL QUOTE -->
+<section style="background:var(--navy);padding:52px 0;border-bottom:1px solid var(--gray-bd)">
+  <div class="container" style="text-align:center">
+    <p style="font-family:var(--font-serif);font-style:italic;font-size:clamp(20px,3vw,28px);color:var(--white);line-height:1.4;max-width:600px;margin:0 auto">
+      "The question isn't whether offshore can work.<br>It's whether you can afford to get it wrong."
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" id="cta">
+  <div class="container">
+    <div class="cta-block">
+      <div class="tag">Get a Clear Plan — Before You Commit</div>
+      <h2>Build it right the first time.</h2>
+      <p style="margin-bottom:6px">We'll assess where your current model is breaking, risks in your reporting and processes, and what it would take to implement offshore correctly.</p>
+      <h5>No guesswork. No trial-and-error. We evaluate:</h5>
+      <div class="cta-bullets">
+        <span>• Where your current model is breaking</span>
+        <span>• Risks in your reporting and processes</span>
+        <span>• Compliance and control gaps</span>
+        <span>• What it would take to implement correctly</span>
+      </div>
+      <div class="cta-btns">
+        <a href="#" class="btn btn-teal btn-lg">Request offshore assessment</a>
+        <a href="#" class="btn btn-ghost-white">Talk to an expert</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div style="border-top:1px solid var(--gray-bd)"></div>
+<section class="footer-cta">
+  <div class="container">
+    <h2>Ready to stop experimenting and start performing?</h2>
+    <p>PE-backed companies trust Venturity to design, build, and stand behind the offshore accounting infrastructure that powers their portfolio.</p>
+    <div class="footer-btns">
+      <a href="#cta" class="btn btn-primary">Book a consultation</a>
+      <a href="#" class="btn btn-ghost">See our approach</a>
+    </div>
+    <p class="footer-note">100% employee-owned &nbsp;·&nbsp; 89 NPS &nbsp;·&nbsp; Accounting Today Best Firms 2025</p>
+  </div>
+</section>
+
+</body>
+</html>
